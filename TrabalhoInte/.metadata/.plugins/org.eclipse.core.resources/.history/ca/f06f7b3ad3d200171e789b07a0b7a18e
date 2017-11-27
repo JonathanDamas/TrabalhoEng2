@@ -1,0 +1,20 @@
+package br.edu.univas.si4.BD;
+
+public class Runner {
+	
+	public static void main(String[] args) {
+
+		CarrosDAO carrosDAO = new CarrosDAO();
+		CarrosTO to = new CarrosTO("Hyundai", "HB20", 2018, "ABC1234");
+		
+		try {
+			carrosDAO.insertNewCarros(to);
+		} catch (CarrosException e) {
+			System.out.println("Erro salvando carros. ");
+			e.printStackTrace();
+		}
+		System.out.println("Sucesso salvando carros");
+			
+		}
+
+}

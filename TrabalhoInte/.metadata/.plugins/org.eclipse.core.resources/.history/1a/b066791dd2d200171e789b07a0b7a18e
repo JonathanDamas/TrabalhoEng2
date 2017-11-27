@@ -1,0 +1,32 @@
+package br.edu.univas.si4.BD;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+public class CarrosDAO {
+	
+public void insertNewCarros(CarrosTO to) throws CarrosException {
+		
+		String sentenca = "INSERT INTO AREA_PESQUISA " + " (CODIGO, INDICE_RELEVANCIA, NOME, DESCRICAO)" + " VALUES(?, ?, ?, ?)";
+		
+		Connection conn = null;
+		
+		try {
+			conn = DBUtil.openConnection();
+			
+			PreparedStatement prepStat = conn.prepareStatement(sentenca);
+			
+			prepStat.setInt(1, to.getCodigo());
+			prepStat.setInt(2, to.getIndice());
+			prepStat.setString(3, to.getNome());
+			prepStat.setString(4, to.getDescricao());
+			
+			prepStat.execute();
+		} catch (Exception e) {
+			throw new CarrosException("Erro salvando area de pesquisa" + to.getNome(),e);
+		  } finally {
+			DBUtil.closeConnection(conn);
+		   	}
+	}
+
+}

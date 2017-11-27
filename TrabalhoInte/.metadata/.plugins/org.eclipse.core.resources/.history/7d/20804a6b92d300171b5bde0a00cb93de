@@ -1,0 +1,42 @@
+package br.edu.univas.si4.Concessionaria;
+
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class TelaCadastrarCliente extends JFrame implements ActionListener{
+
+	private JTextField nomeTextField;
+	private JTextField enderecoTextField;
+	private JTextField cpfTextField;
+	private JTextField telefoneTextField;
+	
+	private JPanel painel = null;
+	
+	public TelaCadastrarCliente(){
+		
+		this.setTitle("Cadastrar Cliente");
+		this.setSize(400, 400);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setLocationRelativeTo(null);
+		this.setResizable(false);
+		setContentPane();
+		addComponent();
+		
+	}
+	
+	private void setContentPane() {
+		painel = new JPanel();
+		setContentPane(painel);
+	}
+
+	private void addComponent() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	
+}

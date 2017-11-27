@@ -1,0 +1,20 @@
+package br.edu.univas.si4.BD;
+
+public class Runner {
+	
+	public static void main(String[] args) {
+
+		ClienteDAO carrosDAO = new ClienteDAO();
+		ClienteTO to = new ClienteTO("Jonathan", "Rua B", 11959179616, 97081708);
+		
+		try {
+			carrosDAO.insertNewCliente(to);
+		} catch (CarrosException e) {
+			System.out.println("Erro salvando cliente. ");
+			e.printStackTrace();
+		}
+		System.out.println("Sucesso salvando cliente");
+			
+		}
+
+}
